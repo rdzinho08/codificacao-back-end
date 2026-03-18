@@ -1,0 +1,24 @@
+{
+  "name": "richard_jaime",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/rdzinho08/codificacao-back-end#readme",
+  "bugs": {
+    "url": "https://github.com/rdzinho08/codificacao-back-end/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdzinho08/codificacao-back-end.git"
+  },
+  "license": "ISC",
+  "author": "richard_jaime",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "install": "^0.13.0"
+  },
+  "devDependencies": {}
+}
