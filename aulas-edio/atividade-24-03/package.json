@@ -1,0 +1,16 @@
+{
+  "name": "atividade-24-03",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "richard",
+  "type": "commonjs",
+  "main": "service.js",
+  "scripts": {
+    "dev": "nodemon service.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
