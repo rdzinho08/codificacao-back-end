@@ -1,22 +1,41 @@
-import express from 'express'
-import { fruitService } from '../services/fruitService.js'
+ import { Router } from 'express'
+import { frutasService } from '../services/frutas.service.js'
 
-const route = express.Router()
+export const frutasRoute = Router()
 
-
-route.get("/", (req, res) => {
-    res.json(fruitService.getAll())
+frutasRoute.get("/", async (req, res) => {
+    const frutas = await frutasService.getAll()
+    res.json(frutas)
 })
 
-route.get("/:id", (req, res) => {
-    const { id } = req.params
-
-    const fruit = fruitService.getById(id)
-    if (!fruit) {
-        res.status(404).json({ message: "Fruta não encontrada" })
-    }
-
-    res.json(fruit)
+frutasRoute.get("/:id", async (req, res) => {
+    const id = req.params.id
+    const fruta = await frutasService.getById(id)
+    res.json(fruta)
 })
 
-export default route
+frutasRoute.post("/", async (req, res) => {
+    const fruta = req.body
+    const novaFruta = await frutasService.create(fruta)
+    res.json(novaFruta)
+})
+
+frutasRoute.put("/:id", async (req, res) => {
+    const id = req.params.id
+    const fruta = req.body
+    const frutaAtualizada = await frutasService.update(id, fruta)
+    res.json(frutaAtualizada)
+})
+
+frutasRoute.patch("/:id", async (req, res) => {
+    const id = req.params.id
+    const fruta = req.body
+    const frutaAtualizada = await frutasService.partialUpdate(id, fruta)
+    res.json(frutaAtualizada)
+})
+
+frutasRoute.delete("/:id", async (req, res) => {
+    const id = req.params.id
+    await frutasService.delete(id)
+    res.status(204).end()
+})
